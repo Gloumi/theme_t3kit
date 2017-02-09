@@ -1,0 +1,26 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:ce="http://typo3.org/ns/TYPO3/CMS/FluidStyledContent/ViewHelpers" data-namespace-typo3-fluid="true">
+
+<f:section name="image">
+    <f:if condition="{mediaItem.link}">
+        <f:then>
+            <f:link.typolink title="{mediaItem.title}" class="img-text-link__img-link" parameter="{mediaItem.link}">
+                <f:render section="media" arguments="{_all}" />
+            </f:link.typolink>
+        </f:then>
+
+        <f:else>
+            <f:render section="media" arguments="{_all}" />
+        </f:else>
+
+    </f:if>
+</f:section>
+<f:section name="media">
+    <f:media
+            file="{mediaItem}"
+            width="{data.imagewidth}"
+            height="{data.imageheight}"
+            alt="{mediaItem.media.alternative}"
+            title="{mediaItem.media.title}"
+            class="img-text-link__img img-responsive"
+    />
+</f:section>
